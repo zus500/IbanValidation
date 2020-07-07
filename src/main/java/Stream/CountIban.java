@@ -8,6 +8,11 @@ package Stream;
 
 public class CountIban {
 
+    static  private String PL = "PL";
+    static  private String ConvertPl = "2521";
+    static  private String denominator = "97" ;
+
+
     static  public List<Bank> countiban (List<Bank> bankList){
 
 
@@ -18,7 +23,7 @@ public class CountIban {
             }
             else return false;
         } ).filter(e -> {
-            if(e.getIban().startsWith("PL")) return true;
+            if(e.getIban().startsWith(PL)) return true;
             else return false;
         })
             .filter(e -> {
@@ -39,12 +44,12 @@ public class CountIban {
     static  public Boolean countIBAN(Bank bank){
 
         String replace;
-        bank.setIban(bank.getIban().replace("PL" , "2521"));
+        bank.setIban(bank.getIban().replace(PL , ConvertPl));
         replace = bank.getIban().substring(0 , 6);
         bank.setIban(bank.getIban().replace(replace , ""));
         bank.setIban(bank.getIban() + replace);
         BigInteger iban = new BigInteger(bank.getIban());
-        BigInteger divider = new BigInteger("97");
+        BigInteger divider = new BigInteger(denominator);
         BigInteger rest = iban.remainder(divider);
         if(rest.equals(1))
             return true;
