@@ -8,9 +8,9 @@ package Stream;
 
 public class CountIban {
 
-    static  private String PL = "PL";
-    static  private String ConvertPl = "2521";
-    static  private String denominator = "97" ;
+    static final private String PL = "PL";
+    static final private String ConvertPl = "2521";
+    static final private String denominator = "97" ;
 
 
     static  public List<Bank> countiban (List<Bank> bankList){
@@ -33,7 +33,7 @@ public class CountIban {
             })
 //                .filter(e -> {
 //                if(countIBAN(e))
-//                    return  true;   <-------- Funkcja licząca zgodność z numerem IBAN
+//                    return  true;   <-------- Funkcja licząca zgodność z numerem IBAN FIXME
 //                else
 //                    return false; })
                 .collect(Collectors.toList());

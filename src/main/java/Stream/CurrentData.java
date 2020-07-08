@@ -5,14 +5,10 @@ import Bank.Bank;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.chrono.ChronoLocalDate;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CurrentData {
-
-
-        static private Date  date  = new Date();
 
     static public List<Bank>  currentdata(List<Bank> bankList)  {
 

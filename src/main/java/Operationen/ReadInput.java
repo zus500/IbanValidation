@@ -14,14 +14,15 @@ import java.util.List;
 
 public class ReadInput {
 
-    static  private List<Bank> ListBank = new ArrayList<Bank>();
+    static private List<Bank> ListBank = new ArrayList<Bank>();
+
+    static private final String input = "input.xml";
 
 
-
-   static public List<Bank> RetunListBank(){
+    static public List<Bank> RetunListBank() {
 
         try {
-            File fXmlFile = new File("input.xml");
+            File fXmlFile = new File(input);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(fXmlFile);
@@ -32,17 +33,18 @@ public class ReadInput {
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
                     Bank bank = new Bank();
-                    bank.setIban( eElement.getAttribute("iban"));
+                    bank.setIban(eElement.getAttribute("iban"));
                     bank.setName(eElement.getElementsByTagName("name").item(0).getTextContent());
                     bank.setCurrency(eElement.getElementsByTagName("currency").item(0).getTextContent());
                     bank.setBalance(Double.valueOf(eElement.getElementsByTagName("balance").item(0).getTextContent()));
                     bank.setClosingDate(eElement.getElementsByTagName("closingDate").item(0).getTextContent());
-                    ListBank.add(bank); }
+                    ListBank.add(bank);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(ListBank.isEmpty()) return null;
+        if (ListBank.isEmpty()) return null;
         else return ListBank;
     }
 

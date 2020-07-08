@@ -9,9 +9,8 @@ public class ChceckBalance {
 
 
 
-   static public List<Bank> ChceckBalance(List<Bank> bankList){
-        List<Bank> result = bankList.stream().filter(e -> e.getBalance() >= 0).collect(Collectors.toList());
-        return  result;
-    }
-
+   static public List<Bank> ChceckBalance(List<Bank> bankList) {
+       List<Bank> result = bankList.stream().filter(e -> e.getBalance() >= 0).collect(Collectors.toList());
+       return result ;
+   }
 }

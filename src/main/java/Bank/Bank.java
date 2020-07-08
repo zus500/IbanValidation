@@ -1,10 +1,15 @@
 package Bank;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.xml.bind.annotation.*;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+
 @XmlRootElement(name = "account")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Bank {
